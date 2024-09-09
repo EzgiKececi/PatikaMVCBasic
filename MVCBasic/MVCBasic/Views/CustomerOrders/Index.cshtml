@@ -1,0 +1,32 @@
+﻿@model CustomerOrderViewModel
+
+
+
+    <h2>Müşteri Bilgileri</h2>
+    <p><strong>ID:</strong> @Model.Customer.Id</p>
+    <p><strong>Ad:</strong> @Model.Customer.FirstName</p>
+    <p><strong>Soyad:</strong> @Model.Customer.LastName</p>
+    <p><strong>E-posta:</strong> @Model.Customer.Email</p>
+
+    <h2>Siparişler</h2>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Sipariş ID</th>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Miktar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Quantity</td>
+                </tr>
+            }
+        </tbody>
+    </table>
